@@ -8,7 +8,7 @@ const MovieItem = ({ movie }) => {
 
   return (
     <Link href={`/movies/${id}`} className='cursor-pointer'>
-      <div className="card glass ">
+      <div className="card glass">
         <figure>
           <img src={img} alt={title} />
         </figure>

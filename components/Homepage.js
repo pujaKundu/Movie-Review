@@ -38,6 +38,7 @@ const Homepage = () => {
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr" }}>
         <Sidebar setGenreId={setGenreId} />
+        
         <MovieList filteredMovies={filteredMovies} />
         {isLoading && <p>Loading</p>}
       </div>
