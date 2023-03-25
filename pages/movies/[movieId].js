@@ -63,7 +63,7 @@ const Movie = () => {
               </span>
               Watch Trailer
             </button>
-            {isOpen && <Trailer movieId={movieId} />}
+           <Trailer movieId={movieId} isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
         </div>
       </div>

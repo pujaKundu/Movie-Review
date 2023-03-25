@@ -7,16 +7,12 @@ const MovieItem = ({ movie }) => {
   const img = `https://image.tmdb.org/t/p/original/${poster_path}`;
 
   return (
-    <Link href={`/movies/${id}`} className='cursor-pointer'>
-      <div className="card glass mr-5">
-        <figure>
+    <Link href={`/movies/${id}`} className="cursor-pointer">
+      <div className="card glass mr-5 ">
+        <figure className="hover:scale-125 duration-300 ease-in-out">
           <img src={img} alt={title} />
         </figure>
-        {/* <div className="card-body">
-          <h2 className="card-title text-violet-100 pt-5">{title}</h2>
-          <Rating vote_average={vote_average} />
-          <div className="card-actions justify-end"></div>
-        </div> */}
+        
       </div>
     </Link>
   );

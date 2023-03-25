@@ -1,11 +1,8 @@
 import Homepage from "../components/Homepage";
-import Navbar from "../components/Shared/Navbar";
-
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-r from-gray-900 via-cyan-900 to-gray-900">
-      
+    <div className="bg-gradient-to-b from-slate-900 via-sky-900 to-slate-900">
       <Homepage />
     </div>
   );
