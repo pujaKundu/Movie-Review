@@ -8,15 +8,15 @@ const MovieItem = ({ movie }) => {
 
   return (
     <Link href={`/movies/${id}`} className='cursor-pointer'>
-      <div className="card glass">
+      <div className="card glass mr-5">
         <figure>
           <img src={img} alt={title} />
         </figure>
-        <div className="card-body">
+        {/* <div className="card-body">
           <h2 className="card-title text-violet-100 pt-5">{title}</h2>
           <Rating vote_average={vote_average} />
           <div className="card-actions justify-end"></div>
-        </div>
+        </div> */}
       </div>
     </Link>
   );

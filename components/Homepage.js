@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import MovieList from "./MovieList.js/MovieList";
+import MovieList from './MovieList/MovieList'
 import Navbar from "./Shared/Navbar";
 import Sidebar from "./Shared/Sidebar";
 
@@ -10,7 +10,6 @@ const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
   //genres filter
   const [genreId, setGenreId] = useState("");
-  
 
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
@@ -21,26 +20,24 @@ const Homepage = () => {
         setMovies(data.results);
         setIsLoading(false);
       });
-  }, [movies.length]);
+  }, []);
 
   const filteredMovies = movies
     .filter((movie) =>
       movie?.title.toLowerCase().includes(searchInput.toLowerCase())
     )
-    .filter((movie) =>
-      genreId === "" || movie?.genre_ids.includes(genreId)
-    );
-    
+    .filter((movie) => genreId === "" || movie?.genre_ids.includes(genreId));
 
   return (
-    <div className=" flex flex-col pt-10 items-center justify-center">
+    <div className="flex flex-col pt-10 items-center justify-center">
       <Navbar setSearchInput={setSearchInput} />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr" }}>
         <Sidebar setGenreId={setGenreId} />
-        
-        <MovieList filteredMovies={filteredMovies} />
-        {isLoading && <p>Loading</p>}
+        <div>
+          <MovieList filteredMovies={filteredMovies} />
+          {isLoading && <p>Loading</p>}
+        </div>
       </div>
     </div>
   );

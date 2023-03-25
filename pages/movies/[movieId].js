@@ -1,14 +1,19 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import Navbar from "../../components/Shared/Navbar";
 import Rating from "../../components/Shared/Rating";
 import SimilarMovies from "../../components/SimilarMovies";
+import Trailer from "./Trailer";
 
 const Movie = () => {
   const router = useRouter();
   const { movieId } = router.query;
 
   const [movie, setMovie] = useState({});
+  const [isOpen, setIsOpen] = useState(false);
+  const handleWatch = (e) => {
+    e.preventDefault();
+    setIsOpen(true);
+  };
 
   const {
     title,
@@ -31,7 +36,7 @@ const Movie = () => {
       .then((res) => res.json())
       .then((data) => {
         setMovie(data);
-        console.log(data);
+        
       });
   }, [movieId]);
   return (
@@ -52,11 +57,17 @@ const Movie = () => {
               Genres: {genres && genres.map((genre) => genre.name).join(", ")}
             </p>
             <p className="py-6 text-slate-100 text-justify">{overview}</p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary" onClick={handleWatch}>
+              <span className="mr-2">
+                <img src="/assets/video.png" alt="" width={25} height={25} />
+              </span>
+              Watch Trailer
+            </button>
+            {isOpen && <Trailer movieId={movieId} />}
           </div>
         </div>
       </div>
-      <SimilarMovies />
+      <SimilarMovies movieId={movieId} />
     </>
   );
 };
