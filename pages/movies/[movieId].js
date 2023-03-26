@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
+import Cast from "../../components/Cast";
 import Rating from "../../components/Shared/Rating";
 import SimilarMovies from "../../components/SimilarMovies";
 import Trailer from "./Trailer";
@@ -137,6 +138,7 @@ const Movie = () => {
                 IMDB
               </a>
             </div>
+            <Cast movieId={ movieId} />
           </div>
         </div>
       </div>

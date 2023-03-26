@@ -34,7 +34,7 @@ const Sidebar = ({ setGenreId }) => {
         <div className="drawer-side overflow-x-hidden">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <h1 className="text-indigo-500 mb-3 text-4xl font-bold pl-5">
-            Movie Viewer
+            Movie Mate
           </h1>
           <ul className="menu p-4 w-80 bg-transparent text-slate-100">
             {/* <!-- Sidebar content here --> */}
