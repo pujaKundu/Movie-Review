@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Cast from "../../components/Cast";
@@ -52,7 +53,7 @@ const Movie = () => {
           <img src={img} className="max-w-sm rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-5xl font-bold text-slate-200 mb-3">{title}</h1>
-            <h3 className="text-2xl font-semibold text-slate-300 mb-3">
+            <h3 className="text-lg font-semibold text-slate-300 my-5">
               {tagline}
             </h3>
 
@@ -111,34 +112,49 @@ const Movie = () => {
             </div>
 
             <p className="py-6 text-slate-100 text-justify">{overview}</p>
-            <div className="flex">
-              <button
-                className="btn bg-transparent border-cyan-300 hover:bg-slate-900 hover:border-cyan-300 mr-2"
-                onClick={handleWatch}
-              >
-                <span className="mr-2">
-                  <img src="/assets/video.png" alt="" width={18} height={18} />
-                </span>
-                Watch Trailer
-              </button>
-              <Trailer
-                movieId={movieId}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-              />
-              <a
-                className="btn bg-transparent border-cyan-300 hover:bg-slate-900 hover:border-cyan-300"
-                rel="noreferrer"
-                href={imdbUrl}
-                target="_blank"
-              >
-                <span className="mr-2">
-                  <img src="/assets/link.png" alt="" width={18} height={18} />
-                </span>
-                IMDB
-              </a>
+            <div className="flex justify-between">
+              <div className="flex">
+                <button
+                  className="btn bg-transparent border-cyan-300 hover:bg-slate-900 hover:border-cyan-300 mr-2"
+                  onClick={handleWatch}
+                >
+                  <span className="mr-2">
+                    <img
+                      src="/assets/video.png"
+                      alt=""
+                      width={18}
+                      height={18}
+                    />
+                  </span>
+                  Watch Trailer
+                </button>
+                <Trailer
+                  movieId={movieId}
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                />
+                <a
+                  className="btn bg-transparent border-cyan-300 hover:bg-slate-900 hover:border-cyan-300"
+                  rel="noreferrer"
+                  href={imdbUrl}
+                  target="_blank"
+                >
+                  <span className="mr-2">
+                    <img src="/assets/link.png" alt="" width={18} height={18} />
+                  </span>
+                  IMDB
+                </a>
+              </div>
+              <Link href="/">
+                <div className="text-lg text-cyan-300 flex justify-center items-center cursor-pointer">
+                  <span className="mr-2">
+                    <img src="/assets/left-arrow.png" alt="" width={18} height={18} />
+                  </span>
+                  Back to home
+                </div>
+              </Link>
             </div>
-            <Cast movieId={ movieId} />
+            <Cast movieId={movieId} />
           </div>
         </div>
       </div>
