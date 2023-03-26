@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import Rating from "../Shared/Rating";
 
-const MovieItem = ({ movie }) => {
-  const { title, id, poster_path, vote_average } = movie;
+const SliderItem = ({ movie }) => {
+  const { title, id, poster_path } = movie;
   const img = `https://image.tmdb.org/t/p/original/${poster_path}`;
-
+  if (movie !== {}) {
+  }
   return (
     <Link href={`/movies/${id}`} className="cursor-pointer">
       <div className="card glass mr-5 ">
@@ -17,4 +17,4 @@ const MovieItem = ({ movie }) => {
   );
 };
 
-export default MovieItem;
+export default SliderItem;

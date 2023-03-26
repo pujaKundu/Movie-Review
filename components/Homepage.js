@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import MovieList from './MovieList/MovieList'
+import MovieList from "./MovieList/MovieList";
 import Navbar from "./Shared/Navbar";
 import Sidebar from "./Shared/Sidebar";
+import TopRatedMovies from "./topRated/TopRatedMovies";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
@@ -34,7 +35,9 @@ const Homepage = () => {
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr" }}>
         <Sidebar setGenreId={setGenreId} />
+
         <div>
+          <TopRatedMovies />
           <MovieList filteredMovies={filteredMovies} />
           {isLoading && <p>Loading</p>}
         </div>

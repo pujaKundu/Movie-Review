@@ -10,17 +10,17 @@ const SimilarMovies = ({ movieId }) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setMovies(data.results);
+        setMovies(data?.results);
       });
   }, []);
   return (
     <div className="bg-gradient-to-r from-gray-900 via-cyan-900 to-gray-900 px-20">
-      <h1 className="text-5xl text-cyan-500 font-semibold pt-5">
-        You May Also Like
+      <h1 className="text-6xl text-cyan-500 font-bold pt-5 bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text ">
+        Recommended
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-20">
-        {movies.map((movie) => (
-          <MovieItem key={movie.id} movie={movie} />
+        {movies?.map((movie) => (
+          <MovieItem key={movie?.id} movie={movie} />
         ))}
       </div>
     </div>

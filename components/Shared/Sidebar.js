@@ -22,7 +22,7 @@ const Sidebar = ({ setGenreId }) => {
     content = (
       <div className="drawer drawer-mobile overflow-x-hidden">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col items-center justify-center overflow-x-hidden">
           {/* <!-- Page content here --> */}
           <label
             htmlFor="my-drawer-2"
@@ -31,7 +31,7 @@ const Sidebar = ({ setGenreId }) => {
             Open drawer
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side overflow-x-hidden">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <h1 className="text-indigo-500 mb-3 text-4xl font-bold pl-5">
             Movie Viewer
@@ -46,7 +46,7 @@ const Sidebar = ({ setGenreId }) => {
             {genres.map((genre) => (
               <li
                 key={genre.id}
-                className="hover:bg-slate-700 rounded"
+                className="hover:bg-black rounded"
                 onClick={() => setGenreId(genre.id)}
               >
                 <span>

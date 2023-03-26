@@ -2,7 +2,6 @@ import React from "react";
 import { RatingStar } from "rating-star";
 
 const Rating = ({ vote_average }) => {
-  
   return (
     <div className="flex ">
       <svg
