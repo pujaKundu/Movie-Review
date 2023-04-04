@@ -45,10 +45,24 @@ const Movie = () => {
         setMovie(data);
       });
   }, [movieId]);
-  console.log(movie);
+
   return (
     <>
-      <div className="hero min-h-screen bg-gradient-to-r from-gray-900 via-cyan-900 to-gray-900">
+      
+      <div className="pt-5 flex justify-between sticky bg-zinc-900">
+        <div className="flex items-center pl-5">
+          <img className="w-12 h-12" src="/assets/movie-reel.png" alt="" />
+          <h1 className="text-2xl text-cyan-300">Silver Screen</h1>
+        </div>
+        <div>
+          <Link href="/">
+            <div className="text-lg text-cyan-300 flex justify-center items-center cursor-pointer mr-5">
+              Home
+            </div>
+          </Link>
+        </div>
+      </div>
+      <div className="hero min-h-screen bg-zinc-900">
         <div className="hero-content flex-col lg:flex-row">
           <img src={img} className="max-w-sm rounded-lg shadow-2xl" />
           <div>
@@ -144,15 +158,10 @@ const Movie = () => {
                   </span>
                   IMDB
                 </a>
-              </div>
-              <Link href="/">
-                <div className="text-lg text-cyan-300 flex justify-center items-center cursor-pointer">
-                  <span className="mr-2">
-                    <img src="/assets/left-arrow.png" alt="" width={18} height={18} />
-                  </span>
-                  Back to home
+                <div>
+                  <button className="bg-cyan-600 hover:bg-cyan-700 text-slate-100 p-3 rounded-lg  ml-2 font-semibold">See Reviews</button>
                 </div>
-              </Link>
+              </div>
             </div>
             <Cast movieId={movieId} />
           </div>

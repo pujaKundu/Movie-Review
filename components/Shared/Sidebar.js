@@ -20,7 +20,7 @@ const Sidebar = ({ setGenreId }) => {
     content = <p>Loading...</p>;
   } else {
     content = (
-      <div className="drawer drawer-mobile overflow-x-hidden">
+      <div className="drawer drawer-mobile overflow-hidden fixed">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center overflow-x-hidden">
           {/* <!-- Page content here --> */}
@@ -31,11 +31,7 @@ const Sidebar = ({ setGenreId }) => {
             Open drawer
           </label>
         </div>
-        <div className="drawer-side overflow-x-hidden">
-          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <h1 className="text-indigo-500 mb-3 text-4xl font-bold pl-5">
-            Movie Mate
-          </h1>
+        <div className="drawer-side overflow-hidden">
           <ul className="menu p-4 w-80 bg-transparent text-slate-100">
             {/* <!-- Sidebar content here --> */}
             <li>

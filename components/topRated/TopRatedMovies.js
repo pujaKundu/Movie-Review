@@ -35,11 +35,11 @@ const TopRatedMovies = ({ filteredMovies = [] }) => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-20">
+        <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-15 ml-5">
           <Slider
             {...settings}
             style={{
-              width: "800px",
+              width: "870px",
             }}
           >
             {topMovies?.map((movie) => (

@@ -30,19 +30,23 @@ const Homepage = () => {
     .filter((movie) => genreId === "" || movie?.genre_ids.includes(genreId));
 
   return (
-    <div className="flex flex-col pt-10 items-center justify-center ">
+    <>
       <Navbar setSearchInput={setSearchInput} />
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr" }}>
-        <Sidebar setGenreId={setGenreId} />
-
-        <div>
-          <TopRatedMovies />
-          <MovieList filteredMovies={filteredMovies} />
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        <div className="fixed">
+          <Sidebar setGenreId={setGenreId} />
+        </div>
+        <div className="ml-96">
+          <MovieList movies={filteredMovies} />
           {isLoading && <p>Loading</p>}
+          <TopRatedMovies />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

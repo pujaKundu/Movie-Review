@@ -33,7 +33,7 @@ const Trailer = ({ movieId, isOpen, setIsOpen }) => {
         onChange={() => setIsOpen(false)}
       />
       <div className="modal ">
-        <div className="modal-box relative bg-slate-900">
+        <div className="modal-box relative bg-zinc-900">
           <label
             htmlFor="my-modal-3"
             className="btn btn-sm btn-circle absolute right-2 top-2"

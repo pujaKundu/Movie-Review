@@ -24,7 +24,7 @@ const Cast = ({ movieId }) => {
               alt={c.name}
               width={40}
               height={40}
-              className="rounded-full mr-4"
+              className="rounded-full w-10 h-10 mr-4"
             />
           ))}
         </div>

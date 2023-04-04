@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import MovieItem from "./MovieList/MovieItem";
 
 const SimilarMovies = ({ movieId }) => {
+
   const [movies, setMovies] = useState([]);
+  const [isLoading,setIsLoading]=useState(true)
 
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
@@ -11,10 +13,12 @@ const SimilarMovies = ({ movieId }) => {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data?.results);
+        setIsLoading(false)
       });
   }, []);
+
   return (
-    <div className="bg-gradient-to-r from-gray-900 via-cyan-900 to-gray-900 px-20">
+    <div className="bg-zinc-900 px-20">
       <h1 className="text-6xl text-cyan-500 font-bold pt-5 bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text ">
         Recommended
       </h1>
@@ -22,6 +26,9 @@ const SimilarMovies = ({ movieId }) => {
         {movies?.map((movie) => (
           <MovieItem key={movie?.id} movie={movie} />
         ))}
+        {
+          isLoading && <p>Loading...</p>
+        }
       </div>
     </div>
   );
