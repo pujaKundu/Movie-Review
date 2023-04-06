@@ -5,7 +5,7 @@ const Navbar = ({ setSearchInput }) => {
     setSearchInput(e.target.value);
   };
   return (
-    <div className="pt-5 flex justify-between sticky">
+    <div className="pt-5 flex justify-between bg-transparent top-0 sticky">
       <div className="flex items-center ml-5">
         <img className="w-12 h-12" src="/assets/movie-reel.png" alt="" />
         <h1 className="text-2xl text-cyan-300">Silver Screen</h1>

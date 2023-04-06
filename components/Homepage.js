@@ -3,6 +3,7 @@ import MovieList from "./MovieList/MovieList";
 import Navbar from "./Shared/Navbar";
 import Sidebar from "./Shared/Sidebar";
 import TopRatedMovies from "./topRated/TopRatedMovies";
+import Banner from "./Banner/Banner";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
@@ -37,13 +38,16 @@ const Homepage = () => {
           display: "flex",
         }}
       >
-        <div className="fixed">
-          <Sidebar setGenreId={setGenreId} />
-        </div>
-        <div className="ml-96">
-          <MovieList movies={filteredMovies} />
-          {isLoading && <p>Loading</p>}
-          <TopRatedMovies />
+        {" "}
+        <div>
+          <div className="fixed">
+            <Sidebar setGenreId={setGenreId} />
+          </div>
+          <div className="ml-96 mb-16">
+            <MovieList movies={filteredMovies} />
+            {isLoading && <p>Loading</p>}
+            <TopRatedMovies />
+          </div>
         </div>
       </div>
     </>

@@ -48,8 +48,7 @@ const Movie = () => {
 
   return (
     <>
-      
-      <div className="pt-5 flex justify-between sticky bg-zinc-900">
+      <div className="pt-5 flex justify-between bg-zinc-900 ">
         <div className="flex items-center pl-5">
           <img className="w-12 h-12" src="/assets/movie-reel.png" alt="" />
           <h1 className="text-2xl text-cyan-300">Silver Screen</h1>
@@ -62,9 +61,9 @@ const Movie = () => {
           </Link>
         </div>
       </div>
-      <div className="hero min-h-screen bg-zinc-900">
+      <div className="hero min-h-screen bg-zinc-900 px-20">
         <div className="hero-content flex-col lg:flex-row">
-          <img src={img} className="max-w-sm rounded-lg shadow-2xl" />
+          <img src={img} className="max-w-sm rounded-lg shadow-2xl mr-5" />
           <div>
             <h1 className="text-5xl font-bold text-slate-200 mb-3">{title}</h1>
             <h3 className="text-lg font-semibold text-slate-300 my-5">
@@ -159,7 +158,9 @@ const Movie = () => {
                   IMDB
                 </a>
                 <div>
-                  <button className="bg-cyan-600 hover:bg-cyan-700 text-slate-100 p-3 rounded-lg  ml-2 font-semibold">See Reviews</button>
+                  <button className="bg-cyan-600 hover:bg-cyan-700 text-slate-100 p-3 rounded-lg  ml-2 font-semibold">
+                    See Reviews
+                  </button>
                 </div>
               </div>
             </div>

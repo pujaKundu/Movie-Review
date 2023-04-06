@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Rating from "../Shared/Rating";
+import Rating from "./Shared/Rating";
 
-const MovieItem = ({ movie, index }) => {
+const SimliarMovieItem = ({ movie }) => {
   const { title, id, poster_path, vote_average, overview } = movie;
 
   const img = `https://image.tmdb.org/t/p/original/${poster_path}`;
@@ -19,29 +19,11 @@ const MovieItem = ({ movie, index }) => {
 
   return (
     <Link href={`/movies/${id}`} className="cursor-pointer">
-      <div className="flex">
-        <h1
-          className=" -mt-16 z-0 mr-5"
-          style={{
-            "-webkit-text-stroke": "1px cyan",
-            textStroke: "1px cyan",
-            color: "transparent",
-            fontSize: "72px",
-          }}
-        >
-          {index + 1}
-        </h1>
         {isHovered ? (
           <div
-            className="card w-92 h-56 bg-base-100 image-full scale-110 duration-300 ease-in-out z-10"
+            className="card w-92 h-56 bg-base-100 shadow-xl image-full scale-125 duration-300 ease-in-out"
             onMouseEnter={handleHover}
             onMouseLeave={handleLeave}
-            style={{
-              boxShadow: isHovered
-                ? "0px 0px 20px rgba(0, 255, 255, 0.2)"
-                : "0px 0px 0px transparent",
-              transition: "box-shadow 0.3s ease-in-out",
-            }}
           >
             <figure>
               <img src={img} alt={title} />
@@ -56,7 +38,7 @@ const MovieItem = ({ movie, index }) => {
           </div>
         ) : (
           <div
-            className="card glass  w-92 h-56 z-10"
+            className="card glass  w-92 h-56"
             onMouseEnter={handleHover}
             onMouseLeave={handleLeave}
           >
@@ -65,9 +47,9 @@ const MovieItem = ({ movie, index }) => {
             </figure>
           </div>
         )}
-      </div>
+  
     </Link>
   );
 };
 
-export default MovieItem;
+export default SimliarMovieItem;

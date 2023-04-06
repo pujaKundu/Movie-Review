@@ -20,7 +20,7 @@ const Sidebar = ({ setGenreId }) => {
     content = <p>Loading...</p>;
   } else {
     content = (
-      <div className="drawer drawer-mobile overflow-hidden fixed">
+      <div className="drawer drawer-mobile overflow-hidden sticky">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center overflow-x-hidden">
           {/* <!-- Page content here --> */}

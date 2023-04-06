@@ -8,8 +8,8 @@ const MovieList = ({ movies = [] }) => {
         Popular
       </h1>
       <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-20">
-        {movies?.slice(0,6).map((movie) => (
-          <MovieItem key={movie?.id} movie={movie} />
+        {movies?.slice(0,6).map((movie,index) => (
+          <MovieItem key={movie?.id} movie={movie} index={ index} />
         ))}
       </div>
     </div>

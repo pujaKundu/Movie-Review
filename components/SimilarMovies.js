@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import MovieItem from "./MovieList/MovieItem";
+import SimliarMovieItem from "./SimilarMovieItem";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import SliderItem from "./topRated/SliderItem";
 
 const SimilarMovies = ({ movieId }) => {
 
@@ -14,21 +18,34 @@ const SimilarMovies = ({ movieId }) => {
       .then((data) => {
         setMovies(data?.results);
         setIsLoading(false)
+        console.log(movies);
       });
   }, []);
 
+   const settings = {
+     dots: false,
+     infinite: true,
+     speed: 500,
+     slidesToShow: 5,
+     slidesToScroll: 1,
+   };
   return (
-    <div className="bg-zinc-900 px-20">
-      <h1 className="text-6xl text-cyan-500 font-bold pt-5 bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text ">
+    <div className="bg-zinc-900 px-20 pb-20">
+      <h1 className="text-6xl text-cyan-500 font-semibold pt-5 bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text ">
         Recommended
       </h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-20">
-        {movies?.map((movie) => (
-          <MovieItem key={movie?.id} movie={movie} />
-        ))}
-        {
-          isLoading && <p>Loading...</p>
-        }
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-16 mr-15 ml-5">
+        <Slider
+          {...settings}
+          style={{
+            width: "1200px",
+          }}
+        >
+          {movies?.map((movie) => (
+            <SliderItem key={movie?.id} movie={movie} />
+          ))}
+          {isLoading && <p>Loading...</p>}
+        </Slider>
       </div>
     </div>
   );
