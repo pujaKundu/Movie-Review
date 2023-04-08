@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 
 const Sidebar = ({ setGenreId }) => {
   const [genres, setGenres] = useState([]);
@@ -17,7 +18,18 @@ const Sidebar = ({ setGenreId }) => {
 
   let content = null;
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = (
+      <ThreeDots
+        height="80"
+        width="80"
+        radius="9"
+        color="cyan"
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}
+      />
+    );
   } else {
     content = (
       <div className="drawer drawer-mobile overflow-hidden sticky">

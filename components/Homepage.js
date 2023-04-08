@@ -6,6 +6,7 @@ import TopRatedMovies from "./topRated/TopRatedMovies";
 import Banner from "./Banner/Banner";
 import UpcomingMovies from "./upcoming/UpcomingMovies";
 import LatestMovies from "./latest/LatestMovies";
+import { ThreeDots } from "react-loader-spinner";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
@@ -38,10 +39,21 @@ const Homepage = () => {
         </div>
         <div className="ml-96 mb-16">
           <MovieList movies={movies} />
-          {isLoading && <p>Loading</p>}
+          {isLoading && (
+            <ThreeDots
+              height="80"
+              width="80"
+              radius="9"
+              color="cyan"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              wrapperClassName=""
+              visible={true}
+            />
+          )}
           <TopRatedMovies />
           <LatestMovies />
-          <UpcomingMovies/>
+          <UpcomingMovies />
         </div>
       </div>
     </div>

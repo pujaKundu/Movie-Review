@@ -3,7 +3,7 @@ import MovieItem from "./MovieItem";
 
 const MovieList = ({ movies = [] }) => {
   return (
-    <div className="pt-12">
+    <div className="pt-6">
       <h1 class="font-semibold text-5xl bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text ">
         Popular
       </h1>

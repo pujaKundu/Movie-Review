@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import React, { useEffect, useState } from "react";
 import SliderItem from "./SliderItem";
+import { ThreeDots } from "react-loader-spinner";
 
 const TopRatedMovies = () => {
   const [topMovies, setTopMovies] = useState([]);
@@ -32,7 +33,16 @@ const TopRatedMovies = () => {
       </h1>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <ThreeDots
+          height="80"
+          width="80"
+          radius="9"
+          color="cyan"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
       ) : (
         <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-15 ml-5">
           <Slider

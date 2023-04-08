@@ -71,7 +71,7 @@ const Movie = () => {
       <div className="hero min-h-screen bg-zinc-900 px-20 ">
         <div className="hero-content flex-col lg:flex-row ">
           <img src={img} className="max-w-sm rounded-lg shadow-2xl mr-5" />
-          <div>
+          <div className="mt-16">
             <h1 className="text-5xl font-bold text-slate-200 mb-3">{title}</h1>
             <h3 className="text-lg font-semibold text-slate-300 my-5">
               {tagline}

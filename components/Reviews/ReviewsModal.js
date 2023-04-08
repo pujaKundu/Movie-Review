@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Review from "./Review";
+import { ThreeDots } from "react-loader-spinner";
 
 const ReviewsModal = ({ movieId, reviewsOpen, setReviewsOpen }) => {
   const [reviews, setReviews] = useState([]);
@@ -34,11 +35,18 @@ const ReviewsModal = ({ movieId, reviewsOpen, setReviewsOpen }) => {
           <label
             htmlFor="my-modal-3"
             className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            
-          </label>
+          ></label>
           {isLoading ? (
-            <div>Loading...</div>
+            <ThreeDots
+              height="80"
+              width="80"
+              radius="9"
+              color="cyan"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              wrapperClassName=""
+              visible={true}
+            />
           ) : (
             <div>
               {reviews.length > 0 ? (
@@ -54,7 +62,6 @@ const ReviewsModal = ({ movieId, reviewsOpen, setReviewsOpen }) => {
       </div>
     </>
   );
-
 };
 
 export default ReviewsModal;

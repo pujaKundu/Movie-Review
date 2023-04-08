@@ -3,12 +3,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import React, { useEffect, useState } from "react";
 import SliderItem from "../topRated/SliderItem";
-
+import { ThreeDots } from "react-loader-spinner";
 
 const UpcomingMovies = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
- 
+
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`;
@@ -33,7 +33,16 @@ const UpcomingMovies = () => {
       </h1>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <ThreeDots
+          height="80"
+          width="80"
+          radius="9"
+          color="cyan"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
       ) : (
         <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-15 ml-5">
           <Slider

@@ -56,7 +56,7 @@ const MovieItem = ({ movie, index }) => {
           </div>
         ) : (
           <div
-            className="card glass  w-92 h-56 z-10"
+            className="card glass w-92 h-56 z-10"
             onMouseEnter={handleHover}
             onMouseLeave={handleLeave}
           >
