@@ -43,3 +43,30 @@ a {
 .drawer-side::-webkit-scrollbar-track {
   background-color: #0e0d0d;
 }
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0e0d0d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #302f2f;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #252424;
+}
+
+
+
+
+
+
+
