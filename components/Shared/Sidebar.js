@@ -54,7 +54,7 @@ const Sidebar = ({ setGenreId }) => {
             {genres.map((genre) => (
               <li
                 key={genre.id}
-                className="hover:bg-black rounded"
+                className="hover:bg-zinc-800 rounded"
                 onClick={() => setGenreId(genre.id)}
               >
                 <span>

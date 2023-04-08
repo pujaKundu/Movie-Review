@@ -73,6 +73,7 @@ const Movie = () => {
           <img src={img} className="max-w-sm rounded-lg shadow-2xl mr-5" />
           <div className="mt-16">
             <h1 className="text-5xl font-bold text-slate-200 mb-3">{title}</h1>
+
             <h3 className="text-lg font-semibold text-slate-300 my-5">
               {tagline}
             </h3>
@@ -83,38 +84,13 @@ const Movie = () => {
                 <small className="text-slate-200 mx-1">( {vote_count} )</small>
               </div>
               <div className="flex">
-                <div className="ml-2 text-amber-400 flex">
-                  <span className="mr-2">
-                    <img
-                      src="/assets/translate.png"
-                      alt="Language"
-                      width={18}
-                      height={18}
-                    />
+                <div className=" text-slate-100 flex">
+                  <span className="text-slate-200 font-bold">
+                    {release_date.slice(0, 4)}  
                   </span>
-                  <span className="uppercase">{original_language}</span>
-                </div>
-                <div className="ml-2 text-slate-100 flex">
-                  <span className="mr-2">
-                    <img
-                      src="/assets/time.png"
-                      alt="Duration"
-                      width={18}
-                      height={18}
-                    />
+                  <span className="text-slate-200 font-bold">
+                     {Math.floor(runtime / 60)}h {runtime % 60}m
                   </span>
-                  <span className="text-amber-400">{runtime}</span>
-                </div>
-                <div className="ml-2 text-slate-100 flex">
-                  <span className="mr-2">
-                    <img
-                      src="/assets/calendar.png"
-                      alt="Release date"
-                      width={18}
-                      height={18}
-                    />
-                  </span>
-                  <span className="text-amber-400">{release_date}</span>
                 </div>
               </div>
             </div>
