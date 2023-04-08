@@ -31,7 +31,7 @@ const Sidebar = ({ setGenreId }) => {
             Open drawer
           </label>
         </div>
-        <div className="drawer-side overflow-hidden">
+        <div className="drawer-side  overflow-hidden">
           <ul className="menu p-4 w-80 bg-transparent text-slate-100">
             {/* <!-- Sidebar content here --> */}
             <li>

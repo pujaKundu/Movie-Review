@@ -5,16 +5,23 @@ import Cast from "../../components/Cast";
 import Rating from "../../components/Shared/Rating";
 import SimilarMovies from "../../components/SimilarMovies";
 import Trailer from "./Trailer";
+import ReviewsModal from "../../components/Reviews/ReviewsModal";
 
 const Movie = () => {
   const router = useRouter();
   const { movieId } = router.query;
 
   const [movie, setMovie] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
-  const handleWatch = (e) => {
+  const [trailerOpen, setTrailerOpen] = useState(false);
+  const [reviewsOpen, setReviewsOpen] = useState(false);
+
+  const handleTrailer = (e) => {
     e.preventDefault();
-    setIsOpen(true);
+    setTrailerOpen(true);
+  };
+  const handleReviews = (e) => {
+    e.preventDefault();
+    setReviewsOpen(true);
   };
 
   const {
@@ -61,8 +68,8 @@ const Movie = () => {
           </Link>
         </div>
       </div>
-      <div className="hero min-h-screen bg-zinc-900 px-20">
-        <div className="hero-content flex-col lg:flex-row">
+      <div className="hero min-h-screen bg-zinc-900 px-20 ">
+        <div className="hero-content flex-col lg:flex-row ">
           <img src={img} className="max-w-sm rounded-lg shadow-2xl mr-5" />
           <div>
             <h1 className="text-5xl font-bold text-slate-200 mb-3">{title}</h1>
@@ -129,7 +136,7 @@ const Movie = () => {
               <div className="flex">
                 <button
                   className="btn bg-transparent border-cyan-300 hover:bg-slate-900 hover:border-cyan-300 mr-2"
-                  onClick={handleWatch}
+                  onClick={handleTrailer}
                 >
                   <span className="mr-2">
                     <img
@@ -141,11 +148,13 @@ const Movie = () => {
                   </span>
                   Watch Trailer
                 </button>
-                <Trailer
-                  movieId={movieId}
-                  isOpen={isOpen}
-                  setIsOpen={setIsOpen}
-                />
+                {trailerOpen && (
+                  <Trailer
+                    movieId={movieId}
+                    trailerOpen={trailerOpen}
+                    setTrailerOpen={setTrailerOpen}
+                  />
+                )}
                 <a
                   className="btn bg-transparent border-cyan-300 hover:bg-slate-900 hover:border-cyan-300"
                   rel="noreferrer"
@@ -158,9 +167,27 @@ const Movie = () => {
                   IMDB
                 </a>
                 <div>
-                  <button className="bg-cyan-600 hover:bg-cyan-700 text-slate-100 p-3 rounded-lg  ml-2 font-semibold">
+                  <button
+                    onClick={handleReviews}
+                    className="btn bg-transparent border-cyan-300 hover:bg-slate-900 hover:border-cyan-300 ml-2"
+                  >
+                    <span className="mr-2">
+                      <img
+                        src="/assets/reviews.png"
+                        alt=""
+                        width={18}
+                        height={18}
+                      />
+                    </span>
                     See Reviews
                   </button>
+                  {reviewsOpen && (
+                    <ReviewsModal
+                      movieId={movieId}
+                      reviewsOpen={reviewsOpen}
+                      setReviewsOpen={setReviewsOpen}
+                    />
+                  )}
                 </div>
               </div>
             </div>

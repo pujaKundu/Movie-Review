@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Trailer = ({ movieId, isOpen, setIsOpen }) => {
+const Trailer = ({ movieId, trailerOpen, setTrailerOpen }) => {
   const [trailers, setTrailers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,8 +29,8 @@ const Trailer = ({ movieId, isOpen, setIsOpen }) => {
         type="checkbox"
         id="my-modal-3"
         className="modal-toggle "
-        checked={isOpen}
-        onChange={() => setIsOpen(false)}
+        checked={trailerOpen}
+        onChange={() => setTrailerOpen(false)}
       />
       <div className="modal ">
         <div className="modal-box relative bg-zinc-900">

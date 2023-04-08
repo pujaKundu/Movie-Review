@@ -7,8 +7,7 @@ import Banner from "./Banner/Banner";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
-  ///search
-  const [searchInput, setSearchInput] = useState("");
+
   const [isLoading, setIsLoading] = useState(true);
   //genres filter
   const [genreId, setGenreId] = useState("");
@@ -24,33 +23,24 @@ const Homepage = () => {
       });
   }, []);
 
-  const filteredMovies = movies
-    .filter((movie) =>
-      movie?.title.toLowerCase().includes(searchInput.toLowerCase())
-    )
-    .filter((movie) => genreId === "" || movie?.genre_ids.includes(genreId));
-
   return (
-    <>
-      <Navbar setSearchInput={setSearchInput} />
-      <div
-        style={{
-          display: "flex",
-        }}
-      >
-        {" "}
-        <div>
-          <div className="fixed">
-            <Sidebar setGenreId={setGenreId} />
-          </div>
-          <div className="ml-96 mb-16">
-            <MovieList movies={filteredMovies} />
-            {isLoading && <p>Loading</p>}
-            <TopRatedMovies />
-          </div>
+    <div
+      style={{
+        display: "flex",
+      }}
+    >
+      {" "}
+      <div className="z-0">
+        <div className="fixed">
+          <Sidebar setGenreId={setGenreId} />
+        </div>
+        <div className="ml-96 mb-16">
+          <MovieList movies={movies} />
+          {isLoading && <p>Loading</p>}
+          <TopRatedMovies />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

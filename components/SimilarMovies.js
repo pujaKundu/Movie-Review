@@ -27,7 +27,7 @@ const SimilarMovies = ({ movieId }) => {
      infinite: true,
      speed: 500,
      slidesToShow: 5,
-     slidesToScroll: 1,
+     slidesToScroll: 5,
    };
   return (
     <div className="bg-zinc-900 px-20 pb-20">

@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import CastItem from "./CastItem";
 
 const Cast = ({ movieId }) => {
   const [cast, setCast] = useState([]);
@@ -10,25 +14,41 @@ const Cast = ({ movieId }) => {
       .then((res) => res.json())
       .then((data) => {
         setCast(data?.cast);
+      
       });
-  }, []);
+  }, [movieId]);
 
-    return (
-      <>
-        <p className="text-xl font-semibold text-slate-300 mt-5">Cast:</p>
-        <div style={{ display: "flex", marginTop: "30px" }}>
-          {cast?.slice(0,8)?.map((c) => (
-            <img
-              key={c.id}
-              src={`https://image.tmdb.org/t/p/original/${c.profile_path}`}
-              alt={c.name}
-              
-              className="rounded-full w-10 h-10 mr-4"
-            />
-          ))}
-        </div>
-      </>
-    );
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+  };
+  return (
+    <>
+      <p className="text-xl font-semibold text-slate-300 mt-5">Cast:</p>
+      <div style={{ display: "flex", marginTop: "30px" }}>
+        <Slider
+          {...settings}
+          style={{
+            width: "690px",
+            marginLeft: "25px",
+          }}
+        >
+          {cast &&
+            cast.map((c) => (
+              <CastItem
+                key={c.id}
+                profile_path={c.profile_path}
+                name={c.name}
+                character={c.character}
+              />
+            ))}
+        </Slider>
+      </div>
+    </>
+  );
 };
 
 export default Cast;
