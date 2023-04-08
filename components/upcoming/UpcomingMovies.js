@@ -2,19 +2,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import React, { useEffect, useState } from "react";
-import SliderItem from "./SliderItem";
+import SliderItem from "../topRated/SliderItem";
 
-const TopRatedMovies = () => {
-  const [topMovies, setTopMovies] = useState([]);
+
+const UpcomingMovies = () => {
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const url = process.env.NEXT_PUBLIC_API_TOP_RATED_URL;
+ 
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
+    const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setTopMovies(data.results);
+        setUpcomingMovies(data.results);
         setIsLoading(false);
       });
   }, []);
@@ -28,7 +29,7 @@ const TopRatedMovies = () => {
   return (
     <div className="pt-12">
       <h1 class="font-semibold text-5xl bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text ">
-        Top Rated
+        Upcoming Movies
       </h1>
 
       {isLoading ? (
@@ -41,7 +42,7 @@ const TopRatedMovies = () => {
               width: "870px",
             }}
           >
-            {topMovies?.map((movie) => (
+            {upcomingMovies?.map((movie) => (
               <SliderItem key={movie?.id} movie={movie} />
             ))}
           </Slider>
@@ -51,4 +52,4 @@ const TopRatedMovies = () => {
   );
 };
 
-export default TopRatedMovies;
+export default UpcomingMovies;

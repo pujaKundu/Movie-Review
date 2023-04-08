@@ -2,19 +2,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import React, { useEffect, useState } from "react";
-import SliderItem from "./SliderItem";
+import SliderItem from "../topRated/SliderItem";
 
-const TopRatedMovies = () => {
-  const [topMovies, setTopMovies] = useState([]);
+
+const LatestMovies = () => {
+  const [latestMovies, setLatestMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const url = process.env.NEXT_PUBLIC_API_TOP_RATED_URL;
+
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
+      const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US`;
+      
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setTopMovies(data.results);
+        setLatestMovies(data.results);
         setIsLoading(false);
       });
   }, []);
@@ -27,21 +29,21 @@ const TopRatedMovies = () => {
   };
   return (
     <div className="pt-12">
-      <h1 class="font-semibold text-5xl bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text ">
-        Top Rated
+      <h1 class="font-semibold text-5xl bg-gradient-to-b from-slate-200 via-cyan-300 to-slate-100 text-transparent bg-clip-text pb-2">
+        Now Playing
       </h1>
 
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-15 ml-5">
+        <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-10 mr-15 ml-5">
           <Slider
             {...settings}
             style={{
               width: "870px",
             }}
           >
-            {topMovies?.map((movie) => (
+            {latestMovies?.map((movie) => (
               <SliderItem key={movie?.id} movie={movie} />
             ))}
           </Slider>
@@ -51,4 +53,4 @@ const TopRatedMovies = () => {
   );
 };
 
-export default TopRatedMovies;
+export default LatestMovies;

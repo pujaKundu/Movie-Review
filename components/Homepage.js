@@ -4,6 +4,8 @@ import Navbar from "./Shared/Navbar";
 import Sidebar from "./Shared/Sidebar";
 import TopRatedMovies from "./topRated/TopRatedMovies";
 import Banner from "./Banner/Banner";
+import UpcomingMovies from "./upcoming/UpcomingMovies";
+import LatestMovies from "./latest/LatestMovies";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
@@ -38,6 +40,8 @@ const Homepage = () => {
           <MovieList movies={movies} />
           {isLoading && <p>Loading</p>}
           <TopRatedMovies />
+          <LatestMovies />
+          <UpcomingMovies/>
         </div>
       </div>
     </div>
