@@ -17,6 +17,7 @@ const Sidebar = ({ setGenreId }) => {
   }, []);
 
   let content = null;
+
   if (isLoading) {
     content = (
       <ThreeDots
@@ -50,6 +51,16 @@ const Sidebar = ({ setGenreId }) => {
               <span className="text-cyan-500 font-semibold text-2xl">
                 Discover
               </span>
+            </li>
+            <li
+              className="hover:bg-zinc-800 rounded"
+              onClick={() => setGenreId("")}
+            >
+              <span>
+                <img src="/assets/science-fiction.png" alt="" width={20} />
+               All
+              </span>
+              
             </li>
             {genres.map((genre) => (
               <li

@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import MovieList from "./MovieList/MovieList";
-import Navbar from "./Shared/Navbar";
 import Sidebar from "./Shared/Sidebar";
 import TopRatedMovies from "./topRated/TopRatedMovies";
-import Banner from "./Banner/Banner";
 import UpcomingMovies from "./upcoming/UpcomingMovies";
 import LatestMovies from "./latest/LatestMovies";
 import { ThreeDots } from "react-loader-spinner";
@@ -26,6 +24,10 @@ const Homepage = () => {
       });
   }, []);
 
+  const filteredMovies = movies.filter(
+    (movie) => genreId === "" || movie?.genre_ids.includes(genreId)
+  );
+  console.log(filteredMovies);
   return (
     <div
       style={{
@@ -38,7 +40,7 @@ const Homepage = () => {
           <Sidebar setGenreId={setGenreId} />
         </div>
         <div className="ml-96 mb-16">
-          <MovieList movies={movies} />
+          <MovieList movies={filteredMovies} />
           {isLoading && (
             <ThreeDots
               height="80"

@@ -7,7 +7,7 @@ const CastItem = ({ profile_path, name, character }) => {
         src={`https://image.tmdb.org/t/p/original/${profile_path}`}
         alt={name}
         className="rounded-full mr-4"
-        style={{ width: "90px", height: "90px" }}
+        style={{ width: "95px", height: "95px" }}
       />
 
       <p className="text-slate-200 text-center my-2">{name}</p>

@@ -85,11 +85,12 @@ const Movie = () => {
               </div>
               <div className="flex">
                 <div className=" text-slate-100 flex">
-                  <span className="text-slate-200 font-bold">
-                    {release_date.slice(0, 4)}  
+                  <span className="text-slate-300 font-bold">
+                    {release_date && release_date.slice(0, 4)}{" "}
+                    <span className="text-slate-300"> &nbsp;. &nbsp;</span>
                   </span>
                   <span className="text-slate-200 font-bold">
-                     {Math.floor(runtime / 60)}h {runtime % 60}m
+                    {Math.floor(runtime / 60)}h {runtime % 60}m
                   </span>
                 </div>
               </div>

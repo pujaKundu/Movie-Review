@@ -24,7 +24,7 @@ const TopRatedMovies = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
   };
   return (
     <div className="pt-12">
@@ -44,7 +44,7 @@ const TopRatedMovies = () => {
           visible={true}
         />
       ) : (
-        <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-20 mr-15 ml-5">
+        <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-10 mr-15 ml-5">
           <Slider
             {...settings}
             style={{
